@@ -342,12 +342,12 @@
 
   <app-hijo
   [titleHijo]="titlePadre" 
-  (salidaHijo)="onSalidaPadre()"
+  (salidaHijo)="onSalidaPadre($event)"
   ></app-hijo>
   
   <app-hijo
   [tituloHijo]="tituloPadre"
-  (salidaHijo2)="onSalidaPadre2()"
+  (salidaHijo2)="onSalidaPadre2($event)"
   ></app-hijo>
 
   <!-- Resources -->

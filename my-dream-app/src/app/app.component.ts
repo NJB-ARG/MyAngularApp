@@ -37,12 +37,12 @@ export class AppComponent implements OnInit, AfterContentInit{
     console.log('AppComponent - ngAfterContentInit');
   }
 
-  public onSalidaPadre(): void {
-    console.log('AppComponent - onSalidaPadre');
+  public onSalidaPadre(event: string): void {
+    console.log('AppComponent - onSalidaPadre', event);
   }
 
-  public onSalidaPadre2(): void {
-    console.log('AppComponent - onSalidaPadre2');
+  public onSalidaPadre2(event: number): void {
+    console.log('AppComponent - onSalidaPadre2', event);
   }
 
 }

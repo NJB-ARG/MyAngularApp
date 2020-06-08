@@ -15,7 +15,7 @@ export class HijoComponent implements OnInit, OnChanges{
   @Output() 
   public salidaHijo: EventEmitter<any> = new EventEmitter();
   @Output()
-  public salidaHijo2: EventEmitter<MouseEvent> = new EventEmitter();
+  public salidaHijo2: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -28,17 +28,17 @@ export class HijoComponent implements OnInit, OnChanges{
     console.log('HijoComponent.ngOnChanges', changes);
     
     this.salidaHijo.emit("salidaHijo");
-    this.salidaHijo2.emit();
+    this.salidaHijo2.emit(Math.random());
   }
 
   public OnClick(event : any): void {
     console.log('HijoComponent.OnClick - 1', event);
-    this.salidaHijo.emit();
+    this.salidaHijo.emit("Click Output salidaHijo");
   }
 
   public OnClick2(event : MouseEvent): void {
     console.log('HijoComponent.OnClick - 2', event);
-    this.salidaHijo2.emit();
+    this.salidaHijo2.emit(Math.random());
   }
 
 }
