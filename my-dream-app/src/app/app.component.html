@@ -341,11 +341,13 @@
   </div>
 
   <app-hijo
-  [titleHijo]="titlePadre"
+  [titleHijo]="titlePadre" 
+  (salidaHijo)="onSalidaPadre()"
   ></app-hijo>
   
   <app-hijo
   [tituloHijo]="tituloPadre"
+  (salidaHijo2)="onSalidaPadre2()"
   ></app-hijo>
 
   <!-- Resources -->

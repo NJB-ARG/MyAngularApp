@@ -7,8 +7,8 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 })
 export class AppComponent implements OnInit, AfterContentInit{
   public title = "Titulo Base";
-  public titlePadre = 'my-dream-app - AppComponent Title';
-  public tituloPadre = 'my-dream-app - AppComponent Titulo';
+  public titlePadre = 'titlePadre - AppComponent Title';
+  public tituloPadre = 'tituloPadre - AppComponent Titulo';
   public user = "";
 
   constructor(){
@@ -31,11 +31,18 @@ export class AppComponent implements OnInit, AfterContentInit{
   }
 
   public ngAfterContentInit(): void {
-    throw new Error("Method not implemented.");
-
+    //throw new Error("Method not implemented.");
     //Si tenemos que interactuar con la vista se hace desde acá, no son muchos los casos
     //por ejemplo como hacemos con Jquery
+    console.log('AppComponent - ngAfterContentInit');
+  }
 
+  public onSalidaPadre(): void {
+    console.log('AppComponent - onSalidaPadre');
+  }
+
+  public onSalidaPadre2(): void {
+    console.log('AppComponent - onSalidaPadre2');
   }
 
 }

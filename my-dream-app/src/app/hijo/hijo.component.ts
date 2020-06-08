@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hijo',
@@ -12,6 +12,11 @@ export class HijoComponent implements OnInit, OnChanges{
   @Input()
   public titleHijo: string = 'HijoComponent title';
   
+  @Output() 
+  public salidaHijo: EventEmitter<any> = new EventEmitter();
+  @Output()
+  public salidaHijo2: EventEmitter<MouseEvent> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,17 +26,19 @@ export class HijoComponent implements OnInit, OnChanges{
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     console.log('HijoComponent.ngOnChanges', changes);
-
+    
+    this.salidaHijo.emit("salidaHijo");
+    this.salidaHijo2.emit();
   }
 
-  public OnClick(event : any):void {
+  public OnClick(event : any): void {
     console.log('HijoComponent.OnClick - 1', event);
-
+    this.salidaHijo.emit();
   }
 
-  public OnClick2(event : MouseEvent):void {
+  public OnClick2(event : MouseEvent): void {
     console.log('HijoComponent.OnClick - 2', event);
-
+    this.salidaHijo2.emit();
   }
 
 }
