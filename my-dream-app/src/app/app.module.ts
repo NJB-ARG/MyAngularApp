@@ -4,17 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HijoComponent } from './hijo/hijo.component';
+import { ComunicacionService } from './comunicacion.service';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HijoComponent
+    HijoComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ComunicacionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
