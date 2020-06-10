@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { ComunicacionService } from './comunicacion.service';
+import { User } from './models/User';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +13,34 @@ export class AppComponent implements OnInit, AfterContentInit{
   public tituloPadre = 'tituloPadre - AppComponent Titulo';
   public user = "";
 
-  constructor(){
+  public userGlobal = new User();  
+
+  //agrego el communicationService
+  constructor(private communicationService: ComunicacionService){
     //no se utiliza tanto mas que para iniciaizar valores por defecto 
     console.log('AppComponent - Constructor');
     this.user = "NJB";
 
-    setTimeout((function() {
+    setTimeout(() => {
       this.user = "Norber";
       this.titlePadre = "1 setTimeout titlePadre";
       this.tituloPadre = "2 setTimeout tituloPadre";
-    }).bind(this), 4000);
+      //Enviar un nuevo valor al servicio para la variable observable user$
+      const userNew = new User();
+      userNew.username = 'Norbi';
+      this.communicationService.user$.next(userNew); 
+    }, 3000);
   }
   
   public ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     console.log('AppComponent - ngOnInit');
-    //no está inicializada la vista y el HTML todavía no está renderizado aquí  
+    //no está inicializada la vista y el HTML todavía no está renderizado aquí 
+    setTimeout(() => {
+      this.userGlobal.username = 'userGlobal-ngOnInit';
+      this.communicationService.user$.next(this.userGlobal);
+    }, 8000);    
   }
 
   public ngAfterContentInit(): void {

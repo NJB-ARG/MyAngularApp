@@ -21,11 +21,17 @@ export class UserComponent implements OnInit {
       this.user = new User();
       this.user.username = "Norberto Bordon";
       this.user.email = "norbi88njb@gmail.com";
-    }, 2000);        
+    }, 2000); 
+    
+    console.log("setTimeout ejecutado");
   }
 
   ngOnInit(): void {
     console.log(this.CommunicationService);
+
+    this.CommunicationService.user$.subscribe((userSubs: User) => {
+      this.user = userSubs;
+    });
 
   }
 
