@@ -15,6 +15,19 @@ export class AppComponent implements OnInit, AfterContentInit{
 
   public userGlobal = new User();  
 
+  public listaServicios: string[] = 
+  [
+    'Discovery',
+    'Analysis',
+    'Design',
+    'Development',
+    'Testing',
+    'Deployment',
+    'Maintenance',
+    'Additional Services'
+  ] 
+;
+
   //agrego el communicationService
   constructor(private communicationService: ComunicacionService){
     //no se utiliza tanto mas que para iniciaizar valores por defecto 
@@ -29,7 +42,10 @@ export class AppComponent implements OnInit, AfterContentInit{
       const userNew = new User();
       userNew.username = 'Norbi';
       this.communicationService.user$.next(userNew); 
-    }, 3000);
+    }, 6000);
+
+    //Prueba de agregado en lista HTML
+    this.listaServicios.push('Consultoria Estratégica');
   }
   
   public ngOnInit(): void {
@@ -38,7 +54,7 @@ export class AppComponent implements OnInit, AfterContentInit{
     console.log('AppComponent - ngOnInit');
     //no está inicializada la vista y el HTML todavía no está renderizado aquí 
     setTimeout(() => {
-      this.userGlobal.username = 'userGlobal-ngOnInit';
+      this.userGlobal.username = 'AppComponent-userGlobal-ngOnInit';
       this.communicationService.user$.next(this.userGlobal);
     }, 8000);    
   }

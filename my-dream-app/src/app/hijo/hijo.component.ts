@@ -17,7 +17,7 @@ export class HijoComponent implements OnInit, OnChanges{
   @Output()
   public salidaHijo2: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor() {console.log('Constructor HijoComponent'); }
 
   ngOnInit(): void {
   }

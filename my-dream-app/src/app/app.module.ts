@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { ComunicacionService } from './comunicacion.service';
 import { UserComponent } from './user/user.component';
+import { OferingComponent } from './ofering/ofering.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HijoComponent,
-    UserComponent
+    UserComponent,
+    OferingComponent
   ],
   imports: [
     BrowserModule,

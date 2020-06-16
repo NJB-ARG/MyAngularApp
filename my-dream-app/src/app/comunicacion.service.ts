@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, ReplaySubject } from 'rxjs';
 
 import {User} from './models/User';
 
@@ -8,14 +8,14 @@ import {User} from './models/User';
 } */)
 export class ComunicacionService {
 
-  public user$: Subject<User> = new Subject();
+  public user$: ReplaySubject<User> = new ReplaySubject(Infinity);
 
   constructor() { 
     setTimeout( () => {
       const user = new User();
       user.username = "ComunicacionService";
       this.user$.next(user);
-    }, 5000);
+    }, 6000);
   }
 
   //***Los servicios NO tiene un lifecycle***

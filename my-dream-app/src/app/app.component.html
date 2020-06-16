@@ -339,7 +339,7 @@
     </svg>
 
   </div>
-
+  <!--  PRUEBAS HIJOS -->
   <app-hijo
   [titleHijo]="titlePadre" 
   (salidaHijo)="onSalidaPadre($event)"
@@ -354,9 +354,28 @@
     <!-- se agrega un HIJO -->
   </app-user>
 
-  <!-- Resources -->
+  <!-- HTML LISTAS -->
+  <div>
+    <h1 class="color-verde"> 
+      OPEN MINDED
+    </h1>
+    <h2>
+      Software Engineering Consultant
+    </h2>
+    <h3>
+      Services
+    </h3>
+    <ol>
+      <li *ngFor="let serv of listaServicios">
+        
+        <!-- {{serv}} -->
+        <app-ofering
+          [ofering]="serv"
+        ></app-ofering>
+      </li>    
+    </ol>
+  </div>
   
-
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
