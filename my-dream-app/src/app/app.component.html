@@ -339,6 +339,38 @@
     </svg>
 
   </div>
+
+  <!-- HTML LISTAS -->
+  <div>
+    <h1 class="color-verde"> 
+      OPEN MINDED
+    </h1>
+    <h2>
+      Software Engineering Consultant
+    </h2>
+    <h3>
+      Services
+    </h3>
+    <ol>
+      <li *ngFor="let serv of listaServicios">       
+        <!-- {{serv}} -->
+        <app-ofering
+          [ofering]="serv"
+        ></app-ofering>
+      </li>    
+    </ol>
+    
+    {{nuevoServicio}}
+    <input type="text" [(ngModel)]="nuevoServicio">
+    <button
+      (click)="onAdd()"
+    >Add Service</button>
+
+    <input type="text" ng>
+  </div>
+  
+</div>
+
   <!--  PRUEBAS HIJOS -->
   <app-hijo
   [titleHijo]="titlePadre" 
@@ -354,30 +386,6 @@
     <!-- se agrega un HIJO -->
   </app-user>
 
-  <!-- HTML LISTAS -->
-  <div>
-    <h1 class="color-verde"> 
-      OPEN MINDED
-    </h1>
-    <h2>
-      Software Engineering Consultant
-    </h2>
-    <h3>
-      Services
-    </h3>
-    <ol>
-      <li *ngFor="let serv of listaServicios">
-        
-        <!-- {{serv}} -->
-        <app-ofering
-          [ofering]="serv"
-        ></app-ofering>
-      </li>    
-    </ol>
-  </div>
-  
-</div>
-
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -385,7 +393,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
 
 <router-outlet></router-outlet>

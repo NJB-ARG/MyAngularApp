@@ -25,8 +25,9 @@ export class AppComponent implements OnInit, AfterContentInit{
     'Deployment',
     'Maintenance',
     'Additional Services'
-  ] 
-;
+  ] ;
+
+  public nuevoServicio: string;
 
   //agrego el communicationService
   constructor(private communicationService: ComunicacionService){
@@ -42,6 +43,8 @@ export class AppComponent implements OnInit, AfterContentInit{
       const userNew = new User();
       userNew.username = 'Norbi';
       this.communicationService.user$.next(userNew); 
+      //cambiar variable de two-way binding
+      this.nuevoServicio = 'Test two-way';
     }, 6000);
 
     //Prueba de agregado en lista HTML
@@ -64,6 +67,12 @@ export class AppComponent implements OnInit, AfterContentInit{
     //Si tenemos que interactuar con la vista se hace desde acá, no son muchos los casos
     //por ejemplo como hacemos con Jquery
     console.log('AppComponent - ngAfterContentInit');
+  }
+
+  public onAdd(): void {
+    console.log('AppComponent - onAdd - Agregar Servicio: ',this.nuevoServicio);
+
+    this.listaServicios.push(this.nuevoServicio);
   }
 
   public onSalidaPadre(event: string): void {
